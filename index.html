@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Cash Dash: Purr-suit & Plants</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+     Loading Screen 
+    <div id="loading-screen" class="screen active">
+        <div class="loading-content">
+            <h1 class="game-title">🐱 Cat Cash Dash 🐱</h1>
+            <div class="loading-spinner"></div>
+            <p class="loading-text">טוען משחק...</p>
+        </div>
+    </div>
+
+     Main Menu 
+    <div id="main-menu" class="screen">
+        <div class="menu-content">
+            <h1 class="game-title">🐱 Cat Cash Dash 🐱</h1>
+            <p class="subtitle">Purr-suit & Plants</p>
+            
+            <div class="stats-display">
+                <div class="stat-item">
+                    <span class="stat-label">מטבעות:</span>
+                    <span class="stat-value" id="menu-coins">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">שיא ריצה:</span>
+                    <span class="stat-value" id="menu-high-score">0</span>
+                </div>
+            </div>
+
+            <div class="menu-buttons">
+                <button class="menu-btn primary" id="start-runner-btn">
+                    🏃 התחל ריצה
+                </button>
+                <button class="menu-btn secondary" id="open-garden-btn">
+                    🌸 גן שלי
+                </button>
+                <button class="menu-btn tertiary" id="reset-game-btn">
+                    🔄 אפס משחק
+                </button>
+            </div>
+        </div>
+    </div>
+
+     Runner Mode 
+    <div id="runner-mode" class="screen">
+        <div class="game-ui">
+            <div class="ui-top">
+                <div class="ui-stat">
+                    <span class="ui-label">מטבעות:</span>
+                    <span class="ui-value" id="runner-coins">0</span>
+                </div>
+                <div class="ui-stat">
+                    <span class="ui-label">מרחק:</span>
+                    <span class="ui-value" id="runner-distance">0</span>
+                </div>
+                <div class="ui-stat">
+                    <span class="ui-label">מהירות:</span>
+                    <span class="ui-value" id="runner-speed">1.0x</span>
+                </div>
+            </div>
+            
+            <div class="active-powerups" id="active-powerups"></div>
+            
+            <button class="pause-btn" id="pause-btn">⏸️</button>
+        </div>
+        
+        <canvas id="runner-canvas"></canvas>
+        
+         Game Over Overlay 
+        <div id="game-over" class="overlay">
+            <div class="overlay-content">
+                <h2>משחק נגמר!</h2>
+                <div class="game-over-stats">
+                    <p>מרחק: <span id="final-distance">0</span>מ'</p>
+                    <p>מטבעות שנאספו: <span id="final-coins">0</span></p>
+                    <p class="new-total">סה"כ מטבעות: <span id="total-coins">0</span></p>
+                </div>
+                <div class="overlay-buttons">
+                    <button class="overlay-btn primary" id="restart-runner-btn">שחק שוב</button>
+                    <button class="overlay-btn secondary" id="menu-from-runner-btn">תפריט ראשי</button>
+                </div>
+            </div>
+        </div>
+
+         Pause Overlay 
+        <div id="pause-overlay" class="overlay">
+            <div class="overlay-content">
+                <h2>משחק מושהה</h2>
+                <div class="overlay-buttons">
+                    <button class="overlay-btn primary" id="resume-btn">המשך</button>
+                    <button class="overlay-btn secondary" id="menu-from-pause-btn">תפריט ראשי</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     Garden Mode 
+    <div id="garden-mode" class="screen">
+        <div class="game-ui">
+            <div class="ui-top">
+                <div class="ui-stat">
+                    <span class="ui-label">מטבעות:</span>
+                    <span class="ui-value" id="garden-coins">0</span>
+                </div>
+                <div class="ui-stat">
+                    <span class="ui-label">פריטים:</span>
+                    <span class="ui-value" id="garden-items-count">0</span>
+                </div>
+            </div>
+            
+            <button class="back-btn" id="back-to-menu-btn">← חזור</button>
+            <button class="shop-toggle-btn" id="shop-toggle-btn">🛒 חנות</button>
+        </div>
+        
+        <canvas id="garden-canvas"></canvas>
+
+         Shop Panel 
+        <div id="shop-panel" class="shop-panel">
+            <div class="shop-header">
+                <h3>חנות הגן</h3>
+                <button class="shop-close-btn" id="shop-close-btn">✕</button>
+            </div>
+            
+            <div class="shop-categories" id="shop-categories"></div>
+            
+            <div class="shop-items" id="shop-items"></div>
+        </div>
+
+         Controls Info 
+        <div class="controls-info">
+            <p>🖱️ לחץ לבחירת מיקום | ⌨️ Delete למחיקה | 🎮 גרור לסיבוב מצלמה</p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
